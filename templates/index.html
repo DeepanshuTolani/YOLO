@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Slouching Detection Demo</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Slouching Detection</h1>
+      <p>Live posture analysis powered by MediaPipe and a lightweight ML model.</p>
+    </header>
+
+    <main>
+      <section class="panel">
+        <div class="video-wrapper">
+          <video id="video" autoplay playsinline></video>
+          <canvas id="canvas" class="hidden"></canvas>
+        </div>
+        <div class="controls">
+          <button id="startBtn">Start</button>
+          <button id="stopBtn" disabled>Stop</button>
+        </div>
+      </section>
+      <section class="panel status">
+        <div class="status-line">
+          <span class="label">Status:</span>
+          <span id="statusText">Idle</span>
+        </div>
+        <div class="status-line">
+          <span class="label">Confidence (slouch):</span>
+          <span id="probText">-</span>
+        </div>
+        <div class="grid">
+          <div class="metric">
+            <div class="metric-label">Neck angle (°)</div>
+            <div id="neckVal" class="metric-value">-</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Back angle (°)</div>
+            <div id="backVal" class="metric-value">-</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Shoulder slope (°)</div>
+            <div id="slopeVal" class="metric-value">-</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Forward head (norm)</div>
+            <div id="fhVal" class="metric-value">-</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Flask + MediaPipe + scikit-learn</span>
+    </footer>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
